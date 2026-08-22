@@ -230,22 +230,31 @@ section{position:relative;z-index:1;padding:108px clamp(20px,5vw,80px)}
 
 /* ── PROJECTS ────────────────────────────────────────── */
 #projects{background:var(--bg)}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.proj{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r16);padding:24px;position:relative;overflow:hidden;transition:all .4s var(--ease);display:flex;flex-direction:column}
-.proj::before{content:'';position:absolute;top:0;left:-110%;height:2.5px;width:110%;background:linear-gradient(90deg,transparent,var(--indigo),var(--pink),var(--cyan),transparent);transition:left .6s var(--ease)}
-.proj:hover{transform:translateY(-6px);border-color:rgba(99,102,241,.26);box-shadow:0 18px 46px rgba(0,0,0,.32),var(--gi)}
-.proj:hover::before{left:0}
-.pico{font-size:30px;margin-bottom:13px;display:block;line-height:1}
-.pname{font-family:var(--fh);font-size:15.5px;font-weight:700;color:var(--tx);margin-bottom:8px}
-.pdesc{font-size:12.5px;color:var(--tx2);line-height:1.75;margin-bottom:auto;padding-bottom:16px}
-.ptags{display:flex;flex-wrap:wrap;gap:5px}
-.pt{font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;background:var(--indigo-d);border:1px solid rgba(99,102,241,.13);color:var(--indigo-l)}
-.store-links{display:flex;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--bdr)}
-.store-btn{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r8);background:var(--surf2);border:1px solid var(--bdr);color:var(--tx2);transition:all .3s var(--ease)}
-.store-btn:hover{color:var(--tx);border-color:var(--indigo);box-shadow:var(--gi);transform:translateY(-2px)}
-.store-btn svg{width:19px;height:19px;display:block;flex-shrink:0}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.proj{--pa:var(--indigo-l);--pg:rgba(99,102,241,.2);background:linear-gradient(145deg,rgba(255,255,255,.048),rgba(255,255,255,.018));border:1px solid var(--bdr);border-radius:20px;padding:25px;position:relative;overflow:hidden;transition:transform .4s var(--ease),border-color .4s,box-shadow .4s;display:flex;flex-direction:column;min-height:355px;isolation:isolate}
+.proj::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pa),transparent 78%);opacity:.9}
+.proj::after{content:'';position:absolute;z-index:-1;width:220px;height:220px;right:-95px;top:-105px;border-radius:50%;background:radial-gradient(circle,var(--pg),transparent 68%);transition:transform .5s var(--ease),opacity .5s;opacity:.75;pointer-events:none}
+.proj:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--pa) 38%,transparent);box-shadow:0 20px 54px rgba(0,0,0,.34),0 0 28px var(--pg)}
+.proj:hover::after{transform:scale(1.18);opacity:1}
+.phead{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}
+.pico{width:54px;height:54px;display:grid;place-items:center;flex-shrink:0;border-radius:15px;background:var(--pg);border:1px solid color-mix(in srgb,var(--pa) 32%,transparent);color:var(--pa);box-shadow:inset 0 1px rgba(255,255,255,.08),0 8px 24px rgba(0,0,0,.18)}
+.pico svg{width:27px;height:27px;display:block}
+.pnum{font-family:var(--fh);font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--tx3)}
+.pname{font-family:var(--fh);font-size:17px;font-weight:700;color:var(--tx);margin-bottom:9px;letter-spacing:-.2px}
+.pdesc{font-size:13.5px;color:var(--tx2);line-height:1.72;margin-bottom:auto;padding-bottom:18px;max-width:58ch}
+.ptags{display:flex;flex-wrap:wrap;gap:6px}
+.pt{font-size:10.5px;font-weight:600;padding:4px 8px;border-radius:5px;background:color-mix(in srgb,var(--pa) 11%,transparent);border:1px solid color-mix(in srgb,var(--pa) 18%,transparent);color:color-mix(in srgb,var(--pa) 80%,white)}
+.store-links{display:flex;gap:9px;margin-top:16px;padding-top:16px;border-top:1px solid var(--bdr);flex-wrap:wrap}
+.store-btn{min-height:42px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.045);border:1px solid var(--bdr);color:var(--tx2);font-size:11px;font-weight:700;transition:all .3s var(--ease)}
+.store-btn:hover{color:var(--tx);border-color:var(--pa);background:color-mix(in srgb,var(--pa) 10%,transparent);box-shadow:0 8px 24px var(--pg);transform:translateY(-2px)}
+.store-btn svg{width:17px;height:17px;display:block;flex-shrink:0}
 .store-btn.disabled{opacity:.3;cursor:not-allowed}
 .store-btn.disabled:hover{color:var(--tx2);border-color:var(--bdr);box-shadow:none;transform:none}
+@media(max-width:600px){
+  .proj{padding:21px;min-height:0}
+  .pico{width:50px;height:50px}
+  .store-btn{flex:1;min-width:128px}
+}
 
 /* ── EDUCATION ───────────────────────────────────────── */
 #education{background:var(--bg2)}
@@ -634,56 +643,56 @@ const EXPERIENCE=[
 
 const PROJECTS=[
   {
-    ico:'🏦', name:'FH Personal App',
+    ico:'personal', accent:'#60a5fa', glow:'rgba(59,130,246,.22)', name:'FH Personal App',
     desc:'Digital banking app enabling card management, biometric authentication, local/international transfers, bill payments, Aani instant payments, and Apple Wallet integration. Served thousands of active users across the UAE.',
     tags:['Flutter','Digital Banking','UAE PASS','Apple Wallet','Aani','Biometrics'],
     play:'https://play.google.com/store/search?q=FH%20Personal%20App&c=apps&hl=en',
     appStore:'https://apps.apple.com/us/app/fh-personal/id1563416308',
   },
   {
-    ico:'🏢', name:'FH Business App',
+    ico:'business', accent:'#2563eb', glow:'rgba(37,99,235,.22)', name:'FH Business App',
     desc:'Corporate digital banking platform for UAE businesses, enabling multi-currency deposit management, local/international transfers, WPS payroll processing, and role-based access control for enterprise users.',
     tags:['Flutter','Corporate Banking','WPS','Multi-Currency','RBAC'],
     play:'https://play.google.com/store/apps/details?id=com.fh.financehousebusiness.android.app&hl=en',
     appStore:'https://apps.apple.com/us/app/finance-house-business/id1538849624',
   },
   {
-    ico:'📈', name:'InvestNation App',
+    ico:'invest', accent:'#fbbf24', glow:'rgba(245,158,11,.2)', name:'InvestNation App',
     desc:'Retail investment platform enabling users to start investing from AED 250 with portfolio options (Saver, Flex, Growth) delivering projected returns of up to 7% annually. Licensed by ESCA under Finance House Group.',
     tags:['Flutter','FinTech','ESCA','Investment','Finance House'],
     play:'https://play.google.com/store/search?q=investnation&c=apps&hl=en',
     appStore:'https://apps.apple.com/us/app/investnation/id6465605280',
   },
   {
-    ico:'🕌', name:'Dhabi App',
+    ico:'bank', accent:'#34d399', glow:'rgba(16,185,129,.2)', name:'Dhabi App',
     desc:'Digital banking platform for personal and business customers, supporting account opening, savings and fixed deposits, international transfers, and global payments through a secure mobile-first experience.',
     tags:['Flutter','Digital Banking','Fixed Deposits','Global Payments'],
     play:'https://play.google.com/store/apps/details?id=com.dhabi.digital&hl=en',
     appStore:'https://apps.apple.com/us/app/dhabi/id6451184658',
   },
   {
-    ico:'🎨', name:'Abu Dhabi Art App',
+    ico:'palette', accent:'#f472b6', glow:'rgba(236,72,153,.2)', name:'Abu Dhabi Art App',
     desc:'Official mobile platform for DCT Abu Dhabi enabling users to browse art fair highlights, discover artworks and exhibitions, and engage with the emirate\'s year-round visual arts programme.',
     tags:['Flutter','DCT Abu Dhabi','Cultural','UAE Gov'],
     play:'https://play.google.com/store/apps/details?id=ae.dctabudhabi.abudhabiart&hl=en',
     appStore:'https://apps.apple.com/us/app/abu-dhabi-art-fair/id1645033258',
   },
   {
-    ico:'🖼️', name:'Art Dubai App',
+    ico:'gallery', accent:'#c084fc', glow:'rgba(168,85,247,.2)', name:'Art Dubai App',
     desc:'Official mobile platform for the Middle East\'s leading international art fair — enabling visitors to browse galleries, discover artworks, schedule events, navigate via interactive maps, and access VIP programmes.',
     tags:['Android','Art Fair','Dubai','Interactive Maps','VIP'],
     play:'https://play.google.com/store/apps/details?id=com.artdubai&hl=en',
     appStore:'https://apps.apple.com/us/app/art-dubai/id1553665984',
   },
   {
-    ico:'👕', name:'WashCloud App',
+    ico:'laundry', accent:'#67e8f9', glow:'rgba(6,182,212,.18)', name:'WashCloud App',
     desc:'AI-driven laundry platform featuring smart delivery tracking and a seamless digital customer experience from order to doorstep.',
     tags:['AI','Logistics','Delivery Tracking'],
     play:'https://play.google.com/store/apps/details?id=net.washcloud&hl=en',
     appStore:'https://apps.apple.com/us/app/washcloud/id1614625033',
   },
   {
-    ico:'💬', name:'Link App',
+    ico:'chat', accent:'#fb7185', glow:'rgba(244,63,94,.18)', name:'Link App',
     desc:'One of the first Syrian chat applications, providing encrypted messaging and real-time voice and video communication capabilities.',
     tags:['Android','XMPP','SIP','VoIP','Encryption'],
   },
@@ -727,15 +736,26 @@ function renderTimeline(){
 
 function renderProjects(){
   const g=document.getElementById('projGrid');
+  const projectIcons={
+    personal:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M9 7h6M9 11h6M10 17.5h4"/></svg>`,
+    business:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8h16v13M8 8V4h8v4M8 12h2m4 0h2M8 16h2m4 0h2M3 21h18"/></svg>`,
+    invest:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5v14h16M7 15l4-4 3 2 5-6M16 7h3v3"/></svg>`,
+    bank:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-6 9 6M5 10h14M6 10v8m4-8v8m4-8v8m4-8v8M3 21h18M5 18h14"/></svg>`,
+    palette:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18h1.2a1.8 1.8 0 0 0 0-3.6h-.8a1.8 1.8 0 0 1 0-3.6H15A6 6 0 0 0 21 8c0-2.8-4-5-9-5Z"/><circle cx="7.5" cy="10" r=".7" fill="currentColor" stroke="none"/><circle cx="10" cy="6.8" r=".7" fill="currentColor" stroke="none"/><circle cx="15" cy="7" r=".7" fill="currentColor" stroke="none"/></svg>`,
+    gallery:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="9" r="1.5"/><path d="m4 17 5-5 3 3 3-3 5 5"/></svg>`,
+    laundry:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 4 4 2 4-2 4 4-3 2v10H7V10L4 8l4-4Z"/><path d="M9 4c.3 1.6 1.4 2.5 3 2.5S14.7 5.6 15 4M10 14h4"/></svg>`,
+    chat:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h12a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H9l-5 4v-4a3 3 0 0 1-2-3V7a3 3 0 0 1 2-3Z"/><path d="M7 10h.01M11 10h.01M15 10h.01" stroke-width="2.5"/></svg>`,
+  };
   const playIcon=`<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.6 2.4c-.4.4-.6 1-.6 1.8v15.6c0 .8.2 1.4.6 1.8L12.4 12 3.6 2.4Z"/><path fill="#fbbc04" d="m15.4 8.8-3-1.7-8.8-4.7L12.4 12l3-3.2Z"/><path fill="#4285f4" d="M3.6 21.6 12.4 12l3 3.2-3 1.7-8.8 4.7Z"/><path fill="#ea4335" d="m15.4 15.2 4.2-2.4c1.2-.7 1.2-1.7 0-2.4l-4.2-2.4-3 4 3 3.2Z"/></svg>`;
   const appleIcon=`<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.1 12.5c0-2.5 2.1-3.7 2.2-3.8a4.8 4.8 0 0 0-3.8-2.1c-1.6-.2-3.1.9-3.9.9-.8 0-2-1-3.3-1-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.3 2.5 1.3-.1 1.8-.8 3.5-.8 1.6 0 2.1.8 3.5.8 1.4 0 2.4-1.3 3.2-2.5 1-1.4 1.4-2.9 1.4-3-.1 0-3.2-1.2-3.2-3.7ZM14.5 4.9c.7-.9 1.2-2.1 1.1-3.3-1.1 0-2.4.7-3.2 1.6-.7.8-1.3 2-1.1 3.2 1.2.1 2.5-.6 3.2-1.5Z"/></svg>`;
-  const storeButton=(url,label,icon)=>url
-    ?`<a class="store-btn" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="View ${label}" title="View ${label}">${icon}</a>`
-    :`<span class="store-btn disabled" aria-label="${label} link not available" title="${label} link not available">${icon}</span>`;
-  PROJECTS.forEach(p=>{
+  const storeButton=(url,label,shortLabel,icon)=>url
+    ?`<a class="store-btn" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="View ${label}" title="View ${label}">${icon}<span>${shortLabel}</span></a>`
+    :`<span class="store-btn disabled" aria-label="${label} link not available" title="${label} link not available">${icon}<span>${shortLabel}</span></span>`;
+  PROJECTS.forEach((p,i)=>{
     const tags=p.tags.map(t=>`<span class="pt">${t}</span>`).join('');
-    const stores=storeButton(p.play,`${p.name} on Google Play`,playIcon)+storeButton(p.appStore,`${p.name} on the App Store`,appleIcon);
-    g.innerHTML+=`<div class="proj rv"><span class="pico" aria-hidden="true">${p.ico}</span><div class="pname">${p.name}</div><div class="pdesc">${p.desc}</div><div class="ptags">${tags}</div><div class="store-links" aria-label="Download ${p.name}">${stores}</div></div>`;
+    const stores=storeButton(p.play,`${p.name} on Google Play`,'Google Play',playIcon)+storeButton(p.appStore,`${p.name} on the App Store`,'App Store',appleIcon);
+    const number=String(i+1).padStart(2,'0');
+    g.innerHTML+=`<article class="proj rv" style="--pa:${p.accent};--pg:${p.glow}"><div class="phead"><span class="pico">${projectIcons[p.ico]}</span><span class="pnum" aria-hidden="true">${number}</span></div><h3 class="pname">${p.name}</h3><p class="pdesc">${p.desc}</p><div class="ptags">${tags}</div><div class="store-links" aria-label="Download ${p.name}">${stores}</div></article>`;
   });
 }
 
