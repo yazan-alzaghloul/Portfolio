@@ -215,6 +215,8 @@ section{position:relative;z-index:1;padding:108px clamp(20px,5vw,80px)}
 .jtitle{font-family:var(--fh);font-size:16.5px;font-weight:700;color:var(--tx)}
 .jbadge{font-size:11px;font-weight:600;background:var(--indigo-d);border:1px solid rgba(99,102,241,.18);border-radius:99px;padding:4px 10px;color:var(--indigo-l);white-space:nowrap;flex-shrink:0}
 .jco{font-size:13px;color:var(--cyan);font-weight:600;margin-bottom:2px}
+.jco a{color:inherit;border-bottom:1px solid rgba(6,182,212,.35);transition:border-color .2s,color .2s}
+.jco a:hover{color:var(--cyan);border-color:var(--cyan)}
 .jloc{font-size:12px;color:var(--tx3);margin-bottom:13px}
 .jpts{font-size:13.5px;color:var(--tx2);line-height:1.8}
 .jpts li{padding-left:14px;position:relative;margin-bottom:3px}
@@ -238,6 +240,10 @@ section{position:relative;z-index:1;padding:108px clamp(20px,5vw,80px)}
 .pdesc{font-size:12.5px;color:var(--tx2);line-height:1.75;margin-bottom:auto;padding-bottom:16px}
 .ptags{display:flex;flex-wrap:wrap;gap:5px}
 .pt{font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;background:var(--indigo-d);border:1px solid rgba(99,102,241,.13);color:var(--indigo-l)}
+.store-links{display:flex;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--bdr)}
+.store-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:var(--r8);background:var(--surf2);border:1px solid var(--bdr);font-size:11px;font-weight:600;color:var(--tx2);transition:all .3s var(--ease)}
+.store-btn:hover{color:var(--tx);border-color:var(--indigo);box-shadow:var(--gi);transform:translateY(-2px)}
+.store-btn svg{width:14px;height:14px;flex-shrink:0}
 
 /* ── EDUCATION ───────────────────────────────────────── */
 #education{background:var(--bg2)}
@@ -573,7 +579,7 @@ const TECH=[
 const EXPERIENCE=[
   {
     title:'Senior Software Engineer',
-    co:'Finance House', loc:'Abu Dhabi, UAE', dates:'Sep 2022 – Present',
+    co:'Finance House', url:'https://www.financehouse.ae/en/home/', loc:'Abu Dhabi, UAE', dates:'Sep 2022 – Present',
     pts:[
       'Lead a cross-functional engineering team of 11 mobile and backend developers, providing technical direction, mentorship, architecture guidance, and delivery standards across multiple digital banking products.',
       'Lead architecture and engineering delivery for five retail and corporate digital banking applications, ensuring scalability, security, performance, maintainability, and seamless customer experiences.',
@@ -586,7 +592,7 @@ const EXPERIENCE=[
   },
   {
     title:'Software Engineer',
-    co:'DA Studio', loc:'Dubai, UAE', dates:'Dec 2021 – Sep 2022',
+    co:'DA Studio', url:'https://dubaiappstudio.ae/', loc:'Dubai, UAE', dates:'Dec 2021 – Sep 2022',
     pts:[
       'Delivered Abu Dhabi Art mobile app for the Ministry of Culture and Tourism, leading requirement gathering, design, and implementation.',
       'Developed features for the Art Dubai mobile application, supporting the digital experience for one of the Middle East\'s leading international art fairs.',
@@ -596,7 +602,7 @@ const EXPERIENCE=[
   },
   {
     title:'Flutter Developer',
-    co:'Digital Wink', loc:'Mersin, Turkey', dates:'Dec 2020 – Sep 2022',
+    co:'Digital Wink', url:'https://diwink.com/', loc:'Mersin, Turkey', dates:'Dec 2020 – Sep 2022',
     pts:[
       'Full-time Dec 2020 – Nov 2021; Part-time Dec 2021 – Sep 2022.',
       'Developed multiple cross-platform apps using Flutter with clean architecture and efficient state management.',
@@ -606,7 +612,7 @@ const EXPERIENCE=[
   },
   {
     title:'Android Developer',
-    co:'Medicus AI', loc:'Vienna, Austria', dates:'Nov 2019 – Nov 2020',
+    co:'Medicus AI', url:'https://www.medicus.ai/', loc:'Vienna, Austria', dates:'Nov 2019 – Nov 2020',
     pts:[
       'Designed and developed new healthcare app modules in partnership with Roche and Central Health.',
       'Eliminated memory leaks (100% reduction) and significantly improved app reliability and UX.',
@@ -615,7 +621,7 @@ const EXPERIENCE=[
   },
   {
     title:'Mobile Application Developer',
-    co:'Syriatel Mobile Telecom', loc:'Damascus, Syria', dates:'Sep 2016 – Oct 2019',
+    co:'Syriatel Mobile Telecom', url:'https://www.syriatel.sy/', loc:'Damascus, Syria', dates:'Sep 2016 – Oct 2019',
     pts:[
       'Developed Syria\'s first social and chat applications with voice and video calling capabilities.',
       'Led a small engineering team to deliver enhanced versions of enterprise mobile apps.',
@@ -699,7 +705,7 @@ function renderTimeline(){
   EXPERIENCE.forEach(j=>{
     const tags=j.tags.map(t=>`<span class="jt ${t.c}">${t.l}</span>`).join('');
     const pts=j.pts.map(p=>`<li>${p}</li>`).join('');
-    tl.innerHTML+=`<div class="tli rv"><div class="tldot"></div><div class="job"><div class="jhead"><span class="jtitle">${j.title}</span><span class="jbadge">${j.dates}</span></div><div class="jco">${j.co}</div><div class="jloc">📍 ${j.loc}</div><ul class="jpts">${pts}</ul><div class="jtags">${tags}</div></div></div>`;
+    tl.innerHTML+=`<div class="tli rv"><div class="tldot"></div><div class="job"><div class="jhead"><span class="jtitle">${j.title}</span><span class="jbadge">${j.dates}</span></div><div class="jco"><a href="${j.url}" target="_blank" rel="noopener noreferrer">${j.co}</a></div><div class="jloc">📍 ${j.loc}</div><ul class="jpts">${pts}</ul><div class="jtags">${tags}</div></div></div>`;
   });
 }
 
