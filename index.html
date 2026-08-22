@@ -241,9 +241,11 @@ section{position:relative;z-index:1;padding:108px clamp(20px,5vw,80px)}
 .ptags{display:flex;flex-wrap:wrap;gap:5px}
 .pt{font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;background:var(--indigo-d);border:1px solid rgba(99,102,241,.13);color:var(--indigo-l)}
 .store-links{display:flex;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--bdr)}
-.store-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:var(--r8);background:var(--surf2);border:1px solid var(--bdr);font-size:11px;font-weight:600;color:var(--tx2);transition:all .3s var(--ease)}
+.store-btn{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r8);background:var(--surf2);border:1px solid var(--bdr);color:var(--tx2);transition:all .3s var(--ease)}
 .store-btn:hover{color:var(--tx);border-color:var(--indigo);box-shadow:var(--gi);transform:translateY(-2px)}
-.store-btn svg{width:14px;height:14px;flex-shrink:0}
+.store-btn svg{width:19px;height:19px;display:block;flex-shrink:0}
+.store-btn.disabled{opacity:.3;cursor:not-allowed}
+.store-btn.disabled:hover{color:var(--tx2);border-color:var(--bdr);box-shadow:none;transform:none}
 
 /* ── EDUCATION ───────────────────────────────────────── */
 #education{background:var(--bg2)}
@@ -635,36 +637,50 @@ const PROJECTS=[
     ico:'🏦', name:'FH Personal App',
     desc:'Digital banking app enabling card management, biometric authentication, local/international transfers, bill payments, Aani instant payments, and Apple Wallet integration. Served thousands of active users across the UAE.',
     tags:['Flutter','Digital Banking','UAE PASS','Apple Wallet','Aani','Biometrics'],
+    play:'https://play.google.com/store/search?q=FH%20Personal%20App&c=apps&hl=en',
+    appStore:'https://apps.apple.com/us/app/fh-personal/id1563416308',
   },
   {
     ico:'🏢', name:'FH Business App',
     desc:'Corporate digital banking platform for UAE businesses, enabling multi-currency deposit management, local/international transfers, WPS payroll processing, and role-based access control for enterprise users.',
     tags:['Flutter','Corporate Banking','WPS','Multi-Currency','RBAC'],
+    play:'https://play.google.com/store/apps/details?id=com.fh.financehousebusiness.android.app&hl=en',
+    appStore:'https://apps.apple.com/us/app/finance-house-business/id1538849624',
   },
   {
     ico:'📈', name:'InvestNation App',
     desc:'Retail investment platform enabling users to start investing from AED 250 with portfolio options (Saver, Flex, Growth) delivering projected returns of up to 7% annually. Licensed by ESCA under Finance House Group.',
     tags:['Flutter','FinTech','ESCA','Investment','Finance House'],
+    play:'https://play.google.com/store/search?q=investnation&c=apps&hl=en',
+    appStore:'https://apps.apple.com/us/app/investnation/id6465605280',
   },
   {
     ico:'🕌', name:'Dhabi App',
     desc:'Digital banking platform for personal and business customers, supporting account opening, savings and fixed deposits, international transfers, and global payments through a secure mobile-first experience.',
     tags:['Flutter','Digital Banking','Fixed Deposits','Global Payments'],
+    play:'https://play.google.com/store/apps/details?id=com.dhabi.digital&hl=en',
+    appStore:'https://apps.apple.com/us/app/dhabi/id6451184658',
   },
   {
     ico:'🎨', name:'Abu Dhabi Art App',
     desc:'Official mobile platform for DCT Abu Dhabi enabling users to browse art fair highlights, discover artworks and exhibitions, and engage with the emirate\'s year-round visual arts programme.',
     tags:['Flutter','DCT Abu Dhabi','Cultural','UAE Gov'],
+    play:'https://play.google.com/store/apps/details?id=ae.dctabudhabi.abudhabiart&hl=en',
+    appStore:'https://apps.apple.com/us/app/abu-dhabi-art-fair/id1645033258',
   },
   {
     ico:'🖼️', name:'Art Dubai App',
     desc:'Official mobile platform for the Middle East\'s leading international art fair — enabling visitors to browse galleries, discover artworks, schedule events, navigate via interactive maps, and access VIP programmes.',
     tags:['Android','Art Fair','Dubai','Interactive Maps','VIP'],
+    play:'https://play.google.com/store/apps/details?id=com.artdubai&hl=en',
+    appStore:'https://apps.apple.com/us/app/art-dubai/id1553665984',
   },
   {
     ico:'👕', name:'WashCloud App',
     desc:'AI-driven laundry platform featuring smart delivery tracking and a seamless digital customer experience from order to doorstep.',
     tags:['AI','Logistics','Delivery Tracking'],
+    play:'https://play.google.com/store/apps/details?id=net.washcloud&hl=en',
+    appStore:'https://apps.apple.com/us/app/washcloud/id1614625033',
   },
   {
     ico:'💬', name:'Link App',
@@ -711,9 +727,15 @@ function renderTimeline(){
 
 function renderProjects(){
   const g=document.getElementById('projGrid');
+  const playIcon=`<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.6 2.4c-.4.4-.6 1-.6 1.8v15.6c0 .8.2 1.4.6 1.8L12.4 12 3.6 2.4Z"/><path fill="#fbbc04" d="m15.4 8.8-3-1.7-8.8-4.7L12.4 12l3-3.2Z"/><path fill="#4285f4" d="M3.6 21.6 12.4 12l3 3.2-3 1.7-8.8 4.7Z"/><path fill="#ea4335" d="m15.4 15.2 4.2-2.4c1.2-.7 1.2-1.7 0-2.4l-4.2-2.4-3 4 3 3.2Z"/></svg>`;
+  const appleIcon=`<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.1 12.5c0-2.5 2.1-3.7 2.2-3.8a4.8 4.8 0 0 0-3.8-2.1c-1.6-.2-3.1.9-3.9.9-.8 0-2-1-3.3-1-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.3 2.5 1.3-.1 1.8-.8 3.5-.8 1.6 0 2.1.8 3.5.8 1.4 0 2.4-1.3 3.2-2.5 1-1.4 1.4-2.9 1.4-3-.1 0-3.2-1.2-3.2-3.7ZM14.5 4.9c.7-.9 1.2-2.1 1.1-3.3-1.1 0-2.4.7-3.2 1.6-.7.8-1.3 2-1.1 3.2 1.2.1 2.5-.6 3.2-1.5Z"/></svg>`;
+  const storeButton=(url,label,icon)=>url
+    ?`<a class="store-btn" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="View ${label}" title="View ${label}">${icon}</a>`
+    :`<span class="store-btn disabled" aria-label="${label} link not available" title="${label} link not available">${icon}</span>`;
   PROJECTS.forEach(p=>{
     const tags=p.tags.map(t=>`<span class="pt">${t}</span>`).join('');
-    g.innerHTML+=`<div class="proj rv"><span class="pico" aria-hidden="true">${p.ico}</span><div class="pname">${p.name}</div><div class="pdesc">${p.desc}</div><div class="ptags">${tags}</div></div>`;
+    const stores=storeButton(p.play,`${p.name} on Google Play`,playIcon)+storeButton(p.appStore,`${p.name} on the App Store`,appleIcon);
+    g.innerHTML+=`<div class="proj rv"><span class="pico" aria-hidden="true">${p.ico}</span><div class="pname">${p.name}</div><div class="pdesc">${p.desc}</div><div class="ptags">${tags}</div><div class="store-links" aria-label="Download ${p.name}">${stores}</div></div>`;
   });
 }
 
