@@ -700,6 +700,9 @@
       const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
       const systemTheme = window.matchMedia('(prefers-color-scheme: light)');
       const root = document.documentElement;
+      const trackEvent = (eventName, parameters = {}) => {
+        if (typeof window.gtag === 'function') window.gtag('event', eventName, parameters);
+      };
 
       /* Theme preference */
       const themeButton = document.querySelector('.theme-toggle');
@@ -715,7 +718,11 @@
         }
       };
       applyTheme(root.dataset.theme || 'dark');
-      themeButton.addEventListener('click', () => applyTheme(root.dataset.theme === 'light' ? 'dark' : 'light', true));
+      themeButton.addEventListener('click', () => {
+        const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
+        applyTheme(nextTheme, true);
+        trackEvent('theme_change', { theme: nextTheme });
+      });
       systemTheme.addEventListener?.('change', event => {
         try {
           if (!localStorage.getItem('portfolio-theme')) applyTheme(event.matches ? 'light' : 'dark');
@@ -783,6 +790,94 @@
         }, { rootMargin: '-32% 0px -55% 0px', threshold: [0, .15, .4] });
         sections.forEach(section => sectionObserver.observe(section));
       }
+
+      /* Privacy-safe Google Analytics events */
+      if ('IntersectionObserver' in window) {
+        const viewedSections = new Set();
+        const analyticsSectionObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            const sectionId = entry.target.id;
+            if (entry.isIntersecting && !viewedSections.has(sectionId)) {
+              viewedSections.add(sectionId);
+              trackEvent('section_view', { section_id: sectionId });
+              analyticsSectionObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .5 });
+        sections.forEach(section => analyticsSectionObserver.observe(section));
+      }
+
+      document.addEventListener('click', event => {
+        const link = event.target.closest('a[href]');
+        if (!link) return;
+
+        const href = link.getAttribute('href') || '';
+        if (link.matches('.nav-cv, .cv-download')) {
+          trackEvent('cv_download', {
+            placement: link.matches('.nav-cv') ? 'navigation' : 'hero'
+          });
+          return;
+        }
+
+        if (href.startsWith('mailto:')) {
+          trackEvent('contact_click', { contact_method: 'email' });
+          return;
+        }
+
+        if (href.startsWith('tel:')) {
+          trackEvent('contact_click', { contact_method: 'phone' });
+          return;
+        }
+
+        if (link.closest('.contact-list') && href.includes('linkedin.com')) {
+          trackEvent('contact_click', { contact_method: 'linkedin' });
+          return;
+        }
+
+        const projectCard = link.closest('.project-card');
+        if (projectCard) {
+          trackEvent('project_link_click', {
+            project_name: projectCard.querySelector('h3')?.textContent.trim() || 'unknown',
+            platform: link.textContent.trim().toLowerCase()
+          });
+          return;
+        }
+
+        if (href.startsWith('#')) {
+          const placement = link.matches('.nav-link') ? 'navigation'
+            : link.matches('.hero-contact') ? 'hero'
+              : link.matches('.back-top') ? 'footer'
+                : link.matches('.logo') ? 'logo'
+                  : 'page';
+          trackEvent('navigation_click', {
+            destination: href.slice(1) || 'home',
+            placement
+          });
+        }
+      });
+
+      const scrollMilestones = new Set();
+      const measureScrollDepth = () => {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollableHeight <= 0) return;
+        const percentage = Math.min(100, Math.round((window.scrollY / scrollableHeight) * 100));
+        [25, 50, 75, 100].forEach(milestone => {
+          if (percentage >= milestone && !scrollMilestones.has(milestone)) {
+            scrollMilestones.add(milestone);
+            trackEvent('scroll_depth', { percent_scrolled: milestone });
+          }
+        });
+      };
+      let scrollMeasurementQueued = false;
+      window.addEventListener('scroll', () => {
+        if (scrollMeasurementQueued) return;
+        scrollMeasurementQueued = true;
+        requestAnimationFrame(() => {
+          measureScrollDepth();
+          scrollMeasurementQueued = false;
+        });
+      }, { passive: true });
+      measureScrollDepth();
 
       /* Cursor behavior */
       const cursorDot = document.querySelector('.cursor-dot');
