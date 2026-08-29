@@ -76,7 +76,23 @@
             "Flutter",
             "Secure enterprise software",
             "AI-assisted engineering"
-          ]
+          ],
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Claude 101 by Anthropic",
+            "credentialCategory": "Certificate of completion",
+            "url": "https://www.linkedin.com/learning/certificates/6bc81bd73f29fee19c9df495cdd3cd81b585681410dd6b0318bf75e38366972f?u=86013394",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Anthropic",
+              "url": "https://www.anthropic.com/"
+            },
+            "competencyRequired": [
+              "Artificial Intelligence (AI)",
+              "Anthropic Claude",
+              "AI literacy"
+            ]
+          }
         }
       ]
     }
@@ -393,6 +409,21 @@
     .award-year { display: grid; min-width: 52px; min-height: 32px; place-items: center; border-radius: 9px; background: rgba(255,183,43,.12); color: var(--amber); font-size: .74rem; font-weight: 700; }
     .award h3 { font: 600 .96rem/1.45 "DM Sans", sans-serif; }
     .award p { margin-top: .25rem; color: var(--muted); font-size: .78rem; }
+    .certificates { margin-top: 1rem; padding: clamp(1.5rem, 3vw, 2rem); border-radius: var(--radius-md); }
+    .certificates h3 { margin-top: .55rem; font-size: clamp(1.45rem, 3vw, 2rem); }
+    .certificate-link { display: grid; grid-template-columns: minmax(150px, .34fr) 1fr auto; margin-top: 1.35rem; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--soft-fill); transition: transform .3s var(--ease-out), border-color .3s ease, background .3s ease, box-shadow .3s ease; }
+    .certificate-link:hover, .certificate-link:focus-visible { transform: translateY(-4px); border-color: rgba(40,199,183,.36); background: var(--soft-fill-hover); box-shadow: 0 18px 42px rgba(0,0,0,.16); }
+    .certificate-mark { position: relative; display: grid; min-height: 180px; place-items: center; overflow: hidden; border-right: 1px solid var(--line); background: linear-gradient(145deg, rgba(91,124,250,.2), rgba(40,199,183,.08)); }
+    .certificate-mark::before { content: ""; position: absolute; width: 112px; height: 112px; border: 1px solid rgba(40,199,183,.2); border-radius: 38%; transform: rotate(16deg); }
+    .certificate-mark strong { position: relative; color: var(--white); font: 800 3rem/1 "Syne", sans-serif; letter-spacing: -.08em; }
+    .certificate-copy { align-self: center; padding: 1.35rem 1.5rem; }
+    .certificate-provider { color: var(--cyan); font-size: .72rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .certificate-copy h4 { margin-top: .55rem; font-size: clamp(1.25rem, 2.6vw, 1.75rem); }
+    .certificate-skills { max-width: 650px; margin-top: .8rem; color: var(--muted); font-size: .86rem; line-height: 1.65; }
+    .certificate-skills strong { color: var(--text-strong); }
+    .certificate-action { display: flex; min-width: 158px; align-items: center; justify-content: center; gap: .55rem; padding: 1.25rem; border-left: 1px solid var(--line); color: var(--white); font-size: .78rem; font-weight: 800; white-space: nowrap; }
+    .certificate-action span { color: var(--cyan); transition: transform .25s ease; }
+    .certificate-link:hover .certificate-action span, .certificate-link:focus-visible .certificate-action span { transform: translate(3px, -3px); }
     .languages { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
     .language { position: relative; overflow: hidden; padding: 1.4rem; border-radius: var(--radius-md); }
     .language::after { content: ""; position: absolute; right: -22px; bottom: -35px; width: 100px; height: 100px; border: 1px solid rgba(40,199,183,.2); border-radius: 50%; }
@@ -475,6 +506,10 @@
       .impact-item:nth-child(3) { grid-column: 1 / -1; }
       .impact-focus { grid-column: 1 / -1; }
       .about-strengths, .projects-grid, .languages { grid-template-columns: 1fr; }
+      .certificate-link { grid-template-columns: 92px 1fr; }
+      .certificate-mark { min-height: 100%; }
+      .certificate-copy { padding: 1.2rem; }
+      .certificate-action { grid-column: 1 / -1; min-width: 0; justify-content: space-between; padding: .9rem 1.1rem; border-top: 1px solid var(--line); border-left: 0; }
       .timeline { padding-left: 34px; }
       .timeline::before { left: 7px; }
       .role::before { left: -34px; }
@@ -551,7 +586,7 @@
             <span class="primary-role">Senior Software Engineer</span>
             <span class="supporting-roles">Mobile Architecture · Engineering Leadership · Digital Delivery · AI-Assisted Engineering</span>
           </div>
-          <p class="hero-copy">I design and deliver secure, scalable enterprise digital solutions across financial services, telecommunications, healthcare, and technology—specializing in mobile architecture, digital banking, payment integrations, and AI-assisted engineering.</p>
+          <p class="hero-copy">I design and deliver secure, scalable enterprise digital solutions across financial services, telecommunications, healthcare, and technology, specializing in mobile architecture, digital banking, payment integrations, and AI-assisted engineering.</p>
           <div class="hero-actions">
             <a class="hero-link cv-download interactive" href="https://yazan-alzaghloul.github.io/portfolio/Yazan-Alzaghloul-CV.pdf" download="Yazan-Alzaghloul-CV.pdf" aria-label="Download Yazan Alzaghloul's CV as a PDF">
               <span>Download CV</span><span class="hero-link-arrow" aria-hidden="true">↓</span>
@@ -574,7 +609,7 @@
       <div class="container">
         <header class="section-head reveal">
           <div><p class="eyebrow">Professional summary</p><h2 class="section-title" id="about-title">Engineering with<br>range and rigor.</h2></div>
-          <p class="section-intro">I’m an engineer who stays close to the code while leading at system level—comfortable moving between architecture decisions, team mentorship, stakeholder collaboration, and the details that make digital products secure and reliable.</p>
+          <p class="section-intro">I’m an engineer who stays close to the code while leading at system level, comfortable moving between architecture decisions, team mentorship, stakeholder collaboration, and the details that make digital products secure and reliable.</p>
         </header>
         <div class="about-panel">
           <article class="about-lead glass reveal slide-left">
@@ -595,7 +630,7 @@
       <div class="container">
         <header class="section-head reveal">
           <div><p class="eyebrow">Technical expertise</p><h2 class="section-title" id="skills-title">A broad, connected<br>engineering toolkit.</h2></div>
-          <p class="section-intro">Technologies and practices are grouped exactly by the expertise represented in the CV. No artificial proficiency percentages—just the tools, systems, and disciplines used.</p>
+          <p class="section-intro">Technologies and practices are grouped exactly by the expertise represented in the CV. No artificial proficiency percentages, only the tools, systems, and disciplines used.</p>
         </header>
         <div class="skill-groups">
           <article class="skill-group glass reveal" style="--group-accent:var(--cyan)"><h3>Mobile Engineering &amp; Development</h3><div class="chip-cloud"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Android</span><span class="chip">Kotlin</span><span class="chip">Java</span><span class="chip">iOS fundamentals</span><span class="chip">Cross-Platform Mobile Development</span><span class="chip">Mobile Application Architecture</span><span class="chip">Performance Optimization</span></div></article>
@@ -620,27 +655,27 @@
         </header>
         <div class="timeline">
           <article class="role glass reveal slide-left" style="--role-accent:var(--blue)">
-            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://www.financehouse.ae/en/home/" target="_blank" rel="noreferrer">Finance House <span aria-hidden="true">↗</span></a></p><h3>Senior Software Engineer</h3></div><p class="role-meta"><span>Sep 2022 – Present</span><span>Abu Dhabi, UAE</span></p></header>
+            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://www.financehouse.ae/en/home/" target="_blank" rel="noreferrer">Finance House <span aria-hidden="true">↗</span></a></p><h3>Senior Software Engineer</h3></div><p class="role-meta"><span>Sep 2022 - Present</span><span>Abu Dhabi, UAE</span></p></header>
             <ul><li>Lead a cross-functional team of 11 mobile and backend developers, providing technical direction, mentorship, architecture guidance, and delivery standards.</li><li>Lead architecture and engineering delivery for five retail and corporate digital banking applications.</li><li>Architect and implement a multi-agent AI-Assisted Development Lifecycle (ADLC) framework across requirements, development, testing, documentation, and release.</li><li>Implement Apple Wallet, Google Wallet, and Samsung Wallet provisioning, plus Aani instant payments and regulated banking integrations.</li><li>Collaborate with product, security, compliance, business, and technology stakeholders on secure financial solutions.</li></ul>
             <div class="role-tags"><span class="chip">Digital Banking</span><span class="chip">Mobile Architecture</span><span class="chip">AI Agents</span><span class="chip">Digital Wallets</span><span class="chip">Aani</span></div>
           </article>
           <article class="role glass reveal slide-right" style="--role-accent:var(--cyan)">
-            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://dubaiappstudio.ae/" target="_blank" rel="noreferrer">DA Studio <span aria-hidden="true">↗</span></a></p><h3>Software Engineer</h3></div><p class="role-meta"><span>Dec 2021 – Sep 2022</span><span>Dubai, UAE</span></p></header>
+            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://dubaiappstudio.ae/" target="_blank" rel="noreferrer">DA Studio <span aria-hidden="true">↗</span></a></p><h3>Software Engineer</h3></div><p class="role-meta"><span>Dec 2021 - Sep 2022</span><span>Dubai, UAE</span></p></header>
             <ul><li>Delivered the Abu Dhabi Art mobile application for the Abu Dhabi Ministry of Culture and Tourism, leading requirement gathering, design, and implementation.</li><li>Developed features for the Art Dubai mobile application.</li><li>Enhanced features for a large-scale social and messaging application serving users in France.</li></ul>
             <div class="role-tags"><span class="chip">Abu Dhabi Art</span><span class="chip">Art Dubai</span><span class="chip">Mobile Apps</span><span class="chip">Social &amp; Messaging</span></div>
           </article>
           <article class="role glass reveal slide-left" style="--role-accent:var(--amber)">
-            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://diwink.com/" target="_blank" rel="noreferrer">Digital Wink <span aria-hidden="true">↗</span></a></p><h3>Flutter Developer</h3></div><p class="role-meta"><span>Full-time: Dec 2020 – Nov 2021</span><span>Part-time: Dec 2021 – Sep 2022</span><span>Mersin, Turkey</span></p></header>
+            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://diwink.com/" target="_blank" rel="noreferrer">Digital Wink <span aria-hidden="true">↗</span></a></p><h3>Flutter Developer</h3></div><p class="role-meta"><span>Full-time: Dec 2020 - Nov 2021</span><span>Part-time: Dec 2021 - Sep 2022</span><span>Mersin, Turkey</span></p></header>
             <ul><li>Developed multiple cross-platform applications using Flutter with clean architecture and efficient state management.</li><li>Integrated Visa, MasterCard, and Mada payment gateways and improved map-based routing algorithms.</li></ul>
             <div class="role-tags"><span class="chip">Flutter</span><span class="chip">Clean Architecture</span><span class="chip">Payments</span><span class="chip">Routing</span></div>
           </article>
           <article class="role glass reveal slide-right" style="--role-accent:var(--indigo)">
-            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://www.medicus.ai/" target="_blank" rel="noreferrer">Medicus AI <span aria-hidden="true">↗</span></a></p><h3>Android Developer</h3></div><p class="role-meta"><span>Nov 2019 – Nov 2020</span><span>Vienna, Austria</span></p></header>
-            <ul><li>Designed and developed new modules for healthcare applications in partnership with Roche and Central Health.</li><li>Eliminated memory leaks—a 100% reduction—and optimized application reliability and user experience.</li></ul>
+            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://www.medicus.ai/" target="_blank" rel="noreferrer">Medicus AI <span aria-hidden="true">↗</span></a></p><h3>Android Developer</h3></div><p class="role-meta"><span>Nov 2019 - Nov 2020</span><span>Vienna, Austria</span></p></header>
+            <ul><li>Designed and developed new modules for healthcare applications in partnership with Roche and Central Health.</li><li>Eliminated memory leaks (a 100% reduction) and optimized application reliability and user experience.</li></ul>
             <div class="role-tags"><span class="chip">Android</span><span class="chip">Healthcare</span><span class="chip">Performance</span><span class="chip">Reliability</span></div>
           </article>
           <article class="role glass reveal slide-left" style="--role-accent:var(--blue)">
-            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://www.syriatel.sy/" target="_blank" rel="noreferrer">Syriatel Mobile Telecom <span aria-hidden="true">↗</span></a></p><h3>Mobile Application Developer</h3></div><p class="role-meta"><span>Sep 2016 – Oct 2019</span><span>Damascus, Syria</span></p></header>
+            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://www.syriatel.sy/" target="_blank" rel="noreferrer">Syriatel Mobile Telecom <span aria-hidden="true">↗</span></a></p><h3>Mobile Application Developer</h3></div><p class="role-meta"><span>Sep 2016 - Oct 2019</span><span>Damascus, Syria</span></p></header>
             <ul><li>Developed Syria’s first social and chat applications with voice and video calling.</li><li>Led a small engineering team to deliver enhanced versions of enterprise applications.</li></ul>
             <div class="role-tags"><span class="chip">Mobile</span><span class="chip">XMPP</span><span class="chip">SIP</span><span class="chip">Voice &amp; Video</span><span class="chip">Team Leadership</span></div>
           </article>
@@ -679,11 +714,20 @@
 
     <section class="section" id="credentials" aria-labelledby="credentials-title">
       <div class="container">
-        <header class="section-head reveal"><div><p class="eyebrow">Education &amp; recognition</p><h2 class="section-title" id="credentials-title">Foundations and<br>earned recognition.</h2></div><p class="section-intro">Software engineering education, four Finance House recognitions, and explicitly stated language proficiency.</p></header>
+        <header class="section-head reveal"><div><p class="eyebrow">Education &amp; recognition</p><h2 class="section-title" id="credentials-title">Foundations and<br>earned recognition.</h2></div><p class="section-intro">Software engineering education, a verified AI certificate, four Finance House recognitions, and language proficiency.</p></header>
         <div class="credentials-grid">
           <article class="credential-card education-card glass reveal slide-left"><span class="credential-label">Education · 2018</span><h3>Damascus University</h3><p>Faculty of Information Technology</p><p class="degree">Software Engineering</p></article>
           <article class="credential-card glass reveal slide-right"><span class="credential-label">Awards</span><ul class="award-list"><li class="award"><span class="award-year">2025</span><div><h3>Certificate of Appreciation</h3><p>Finance House · Development of the new investnation Credit Card</p></div></li><li class="award"><span class="award-year">2024</span><div><h3>Certificate of Appreciation</h3><p>Finance House · Contribution to Oracle Cloud Infrastructure migration</p></div></li><li class="award"><span class="award-year">2023</span><div><h3>Certificate of Appreciation</h3><p>Finance House · Outstanding performance in digital delivery</p></div></li><li class="award"><span class="award-year">2023</span><div><h3>NPSS Project Completion Award</h3><p>Finance House</p></div></li></ul></article>
         </div>
+        <section class="certificates glass reveal" aria-labelledby="certificates-title">
+          <span class="credential-label">Professional learning</span>
+          <h3 id="certificates-title">Certificates</h3>
+          <a class="certificate-link interactive" href="https://www.linkedin.com/learning/certificates/6bc81bd73f29fee19c9df495cdd3cd81b585681410dd6b0318bf75e38366972f?u=86013394" target="_blank" rel="noreferrer" data-certificate-name="Claude 101 by Anthropic" data-certificate-issuer="Anthropic">
+            <span class="certificate-mark" aria-hidden="true"><strong>AI</strong></span>
+            <div class="certificate-copy"><span class="certificate-provider">Anthropic</span><h4>Claude 101 by Anthropic</h4><p class="certificate-skills"><strong>Skills covered:</strong> Artificial Intelligence (AI), Anthropic Claude, and AI literacy.</p></div>
+            <span class="certificate-action">View certificate <span aria-hidden="true">↗</span></span>
+          </a>
+        </section>
         <div class="languages" aria-label="Languages">
           <article class="language glass reveal"><h3>Arabic</h3><span>Native</span></article>
           <article class="language glass reveal"><h3>English</h3><span>Professional working proficiency</span></article>
@@ -848,6 +892,14 @@
           if (link.closest('.contact-list') && href.includes('linkedin.com')) {
             trackEvent('contact_click', { contact_method: 'linkedin' });
           }
+          return;
+        }
+
+        if (link.dataset.certificateName) {
+          trackEvent('certificate_click', {
+            certificate_name: link.dataset.certificateName,
+            issuer: link.dataset.certificateIssuer || 'unknown'
+          });
           return;
         }
 
