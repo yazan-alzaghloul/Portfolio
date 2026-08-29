@@ -14,12 +14,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07101c" id="theme-color-meta">
+  <meta name="color-scheme" content="dark light">
+  <meta name="author" content="Yazan Alzaghloul">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="description" content="Senior Software Engineer and Mobile Architect with 10 years of experience delivering secure digital banking, enterprise mobile, and AI-assisted engineering solutions.">
   <title>Yazan Alzaghloul | Senior Software Engineer &amp; Mobile Architect</title>
   <link rel="canonical" href="https://yazan-alzaghloul.github.io/portfolio/">
+  <link rel="alternate" hreflang="en" href="https://yazan-alzaghloul.github.io/portfolio/">
+  <link rel="alternate" hreflang="x-default" href="https://yazan-alzaghloul.github.io/portfolio/">
   <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Yazan Alzaghloul Portfolio">
   <meta property="og:url" content="https://yazan-alzaghloul.github.io/portfolio/">
   <meta property="og:title" content="Yazan Alzaghloul | Senior Software Engineer &amp; Mobile Architect">
   <meta property="og:description" content="10 years of engineering secure digital products across mobile architecture, digital banking, technical leadership, and AI-assisted engineering.">
@@ -31,8 +38,49 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Yazan Alzaghloul | Senior Software Engineer &amp; Mobile Architect">
   <meta name="twitter:description" content="10 years of engineering secure digital products across mobile architecture, digital banking, technical leadership, and AI-assisted engineering.">
+  <meta name="twitter:url" content="https://yazan-alzaghloul.github.io/portfolio/">
   <meta name="twitter:image" content="https://yazan-alzaghloul.github.io/portfolio/og.png">
   <meta name="twitter:image:alt" content="Yazan Alzaghloul, Senior Software Engineer and Mobile Architect">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://yazan-alzaghloul.github.io/portfolio/#website",
+          "url": "https://yazan-alzaghloul.github.io/portfolio/",
+          "name": "Yazan Alzaghloul Portfolio",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://yazan-alzaghloul.github.io/portfolio/#profile",
+          "url": "https://yazan-alzaghloul.github.io/portfolio/",
+          "name": "Yazan Alzaghloul | Senior Software Engineer and Mobile Architect",
+          "isPartOf": { "@id": "https://yazan-alzaghloul.github.io/portfolio/#website" },
+          "mainEntity": { "@id": "https://yazan-alzaghloul.github.io/portfolio/#person" },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://yazan-alzaghloul.github.io/portfolio/#person",
+          "name": "Yazan Alzaghloul",
+          "url": "https://yazan-alzaghloul.github.io/portfolio/",
+          "jobTitle": "Senior Software Engineer and Mobile Architect",
+          "sameAs": ["https://www.linkedin.com/in/yazan-alzaghloul"],
+          "knowsAbout": [
+            "Mobile application architecture",
+            "Digital banking",
+            "Kotlin",
+            "Swift",
+            "Flutter",
+            "Secure enterprise software",
+            "AI-assisted engineering"
+          ]
+        }
+      ]
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet">
@@ -173,28 +221,6 @@
     .page-glow.one { top: 20%; left: -15rem; background: var(--cyan); }
     .page-glow.two { right: -15rem; bottom: 8%; background: var(--blue); }
 
-    .loader {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      display: none;
-      place-items: center;
-      background: #050609;
-      transition: opacity .5s ease, visibility .5s ease;
-    }
-    .js .loader { display: grid; }
-    .loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-    .loader-inner { width: min(72vw, 360px); text-align: center; }
-    .loader-mark {
-      margin-bottom: 1.25rem;
-      font: 800 clamp(3rem, 9vw, 5rem)/1 "Syne", sans-serif;
-      letter-spacing: -.06em;
-      color: var(--white);
-    }
-    .loader-label { margin-bottom: .65rem; color: #a8adbd; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; }
-    .loader-track { height: 4px; overflow: hidden; background: rgba(255,255,255,.1); border-radius: 999px; }
-    .loader-progress { width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--indigo), var(--blue), var(--cyan), var(--amber)); animation: load 1.7s cubic-bezier(.5,0,.2,1) forwards; }
-
     .site-header {
       position: fixed;
       top: 14px;
@@ -246,7 +272,7 @@
 
     main { overflow: hidden; }
     .container { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
-    .section { padding: clamp(5rem, 9vw, 8rem) 0; }
+    .section { padding: clamp(5rem, 9vw, 8rem) 0; content-visibility: auto; contain-intrinsic-size: auto 900px; }
     .section-head { display: grid; grid-template-columns: minmax(0, .7fr) minmax(280px, 1fr); gap: 2rem; align-items: end; margin-bottom: 3rem; }
     .eyebrow { display: inline-flex; align-items: center; gap: .65rem; margin-bottom: .85rem; color: var(--cyan); font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
@@ -385,17 +411,6 @@
     .contact-item small { display: block; color: var(--muted); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
     .contact-item strong { display: block; margin-top: .18rem; overflow-wrap: anywhere; font-size: .92rem; }
     .contact-arrow { color: var(--blue); }
-    .contact-form { margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
-    .contact-form h3 { font-size: 1.18rem; }
-    .form-field { display: grid; gap: .38rem; margin-top: .9rem; }
-    .form-field label { color: var(--text-soft); font-size: .76rem; font-weight: 700; }
-    .form-field input, .form-field textarea { width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--soft-fill); color: var(--white); font: inherit; font-size: .86rem; outline: 0; padding: .7rem .78rem; transition: border-color .25s ease, box-shadow .25s ease; }
-    .form-field textarea { min-height: 112px; resize: vertical; }
-    .form-field input::placeholder, .form-field textarea::placeholder { color: var(--muted); }
-    .form-field input:focus, .form-field textarea:focus { border-color: rgba(40,199,183,.55); box-shadow: 0 0 0 3px rgba(40,199,183,.12); }
-    .form-submit { display: inline-flex; margin-top: 1rem; align-items: center; padding: .68rem .95rem; border: 1px solid rgba(91,124,250,.4); border-radius: 10px; background: linear-gradient(120deg, rgba(91,124,250,.28), rgba(46,155,255,.15)); color: var(--white); font-size: .78rem; font-weight: 800; cursor: pointer; transition: transform .25s ease, border-color .25s ease; }
-    .form-submit:hover, .form-submit:focus-visible { transform: translateY(-2px); border-color: rgba(40,199,183,.55); }
-    .form-status { min-height: 1.3rem; margin-top: .65rem; color: var(--muted); font-size: .76rem; }
     .contact-visual { position: relative; display: grid; min-height: 470px; place-items: center; overflow: hidden; background: linear-gradient(145deg, rgba(91,124,250,.14), rgba(46,155,255,.05)), var(--accent-surface-end); }
     .ripple { position: absolute; width: 180px; height: 180px; border: 1px solid var(--line); border-radius: 50%; animation: ripple 4.5s ease-out infinite; }
     .ripple:nth-child(2) { animation-delay: 1.5s; }
@@ -418,7 +433,6 @@
     .js .reveal.is-visible { opacity: 1; transform: translate(0); }
 
     /* Keyframes */
-    @keyframes load { to { width: 100%; } }
     @keyframes heroEnter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes navDrop { from { opacity: 0; transform: translateY(-90px); } to { opacity: 1; transform: none; } }
     @keyframes lineFlow { to { background-position: 0 200%; } }
@@ -476,7 +490,6 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .loader { display: none !important; }
       .js .reveal { opacity: 1; transform: none; }
       .js .hero-content > * { opacity: 1; transform: none; animation: none; }
       .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
@@ -498,14 +511,6 @@
   <div class="page-glow two" aria-hidden="true"></div>
   <div class="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-ring" aria-hidden="true"></div>
-
-  <div class="loader" role="status" aria-label="Loading portfolio">
-    <div class="loader-inner">
-      <div class="loader-mark" aria-hidden="true">YA</div>
-      <p class="loader-label">Building the experience</p>
-      <div class="loader-track"><div class="loader-progress"></div></div>
-    </div>
-  </div>
 
   <!-- Semantic HTML content -->
   <header class="site-header">
@@ -694,7 +699,7 @@
             <a class="contact-item interactive" href="mailto:yazan.alzaghloul@gmail.com"><span class="contact-icon" aria-hidden="true">&#x2709;&#xFE0E;</span><span><small>Email</small><strong>yazan.alzaghloul@gmail.com</strong></span><span class="contact-arrow" aria-hidden="true">↗</span></a>
             <a class="contact-item interactive" href="tel:+971521206549"><span class="contact-icon" aria-hidden="true">&#x260E;&#xFE0E;</span><span><small>Phone</small><strong>+971 52 120 6549</strong></span><span class="contact-arrow" aria-hidden="true">↗</span></a>
             <div class="contact-item"><span class="contact-icon" aria-hidden="true">⌖</span><span><small>Location</small><strong>Abu Dhabi, UAE</strong></span></div>
-            <a class="contact-item interactive" href="https://www.linkedin.com/in/yazan-alzaghloul" target="_blank" rel="noreferrer" data-social-profile="linkedin"><span class="contact-icon" aria-hidden="true">in</span><span><small>LinkedIn</small><strong>yazan-alzaghloul</strong></span><span class="contact-arrow" aria-hidden="true">↗</span></a>
+            <a class="contact-item interactive" href="https://www.linkedin.com/in/yazan-alzaghloul" target="_blank" rel="me noreferrer" data-social-profile="linkedin"><span class="contact-icon" aria-hidden="true">in</span><span><small>LinkedIn</small><strong>yazan-alzaghloul</strong></span><span class="contact-arrow" aria-hidden="true">↗</span></a>
           </address>
           <div class="contact-visual glass reveal slide-right" aria-hidden="true"><span class="ripple"></span><span class="ripple"></span><span class="ripple"></span><div class="contact-monogram">YA</div><p class="contact-cta">Build secure, scalable digital experiences.</p></div>
         </div>
@@ -740,15 +745,6 @@
           if (!localStorage.getItem('portfolio-theme')) applyTheme(event.matches ? 'light' : 'dark');
         } catch { applyTheme(event.matches ? 'light' : 'dark'); }
       });
-
-      /* Loader lifecycle */
-      const loader = document.querySelector('.loader');
-      const dismissLoader = () => {
-        loader.classList.add('is-hidden');
-        window.setTimeout(() => loader.remove(), 550);
-      };
-      if (reducedMotion.matches) dismissLoader();
-      else window.setTimeout(dismissLoader, 1700);
 
       /* Mobile navigation */
       const menuButton = document.querySelector('.menu-toggle');
@@ -877,34 +873,6 @@
         }
       });
 
-      const contactForm = document.querySelector('#contact-form');
-      const contactFormStatus = document.querySelector('#contact-form-status');
-      if (contactForm && contactFormStatus) {
-        let formStarted = false;
-        contactForm.addEventListener('focusin', () => {
-          if (formStarted) return;
-          formStarted = true;
-          trackEvent('contact_form_start');
-        });
-        contactForm.addEventListener('submit', event => {
-          event.preventDefault();
-          const invalidFields = [...contactForm.querySelectorAll('[required]')].filter(field => !field.checkValidity());
-          if (invalidFields.length) {
-            trackEvent('contact_form_error', { field_count: invalidFields.length });
-            contactFormStatus.textContent = 'Please complete the required fields.';
-            invalidFields[0].focus();
-            return;
-          }
-
-          const formData = new FormData(contactForm);
-          const subject = 'Portfolio inquiry';
-          const body = `Name: ${formData.get('name')}\nEmail: ${formData.get('email')}\n\n${formData.get('message')}`;
-          trackEvent('contact_form_submit', { delivery: 'email' });
-          contactFormStatus.textContent = 'Opening your email app...';
-          window.location.href = `mailto:yazan.alzaghloul@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        });
-      }
-
       /* Scroll depth via viewport observation, without a per-frame scroll handler */
       if ('IntersectionObserver' in window) {
         const scrollMarkers = [25, 50, 75, 100].map(percent => {
@@ -947,19 +915,21 @@
       const cursorDot = document.querySelector('.cursor-dot');
       const cursorRing = document.querySelector('.cursor-ring');
       if (finePointer.matches && !reducedMotion.matches) {
-        let mouseX = -100, mouseY = -100, ringX = -100, ringY = -100;
-        document.addEventListener('pointermove', event => {
-          mouseX = event.clientX; mouseY = event.clientY;
-          cursorDot.style.opacity = '1'; cursorRing.style.opacity = '1';
-          cursorDot.style.transform = `translate3d(${mouseX - 3.5}px, ${mouseY - 3.5}px, 0)`;
-        });
+        let mouseX = -100, mouseY = -100, ringX = -100, ringY = -100, cursorFrame = 0;
         const animateRing = () => {
           ringX += (mouseX - ringX) * .16; ringY += (mouseY - ringY) * .16;
           cursorRing.style.left = `${ringX}px`;
           cursorRing.style.top = `${ringY}px`;
-          requestAnimationFrame(animateRing);
+          if (Math.abs(mouseX - ringX) > .1 || Math.abs(mouseY - ringY) > .1) {
+            cursorFrame = requestAnimationFrame(animateRing);
+          } else cursorFrame = 0;
         };
-        animateRing();
+        document.addEventListener('pointermove', event => {
+          mouseX = event.clientX; mouseY = event.clientY;
+          cursorDot.style.opacity = '1'; cursorRing.style.opacity = '1';
+          cursorDot.style.transform = `translate3d(${mouseX - 3.5}px, ${mouseY - 3.5}px, 0)`;
+          if (!cursorFrame) cursorFrame = requestAnimationFrame(animateRing);
+        });
         document.querySelectorAll('a, button, .chip, .project-card').forEach(item => {
           item.addEventListener('pointerenter', () => cursorRing.classList.add('is-hovering'));
           item.addEventListener('pointerleave', () => cursorRing.classList.remove('is-hovering'));
@@ -970,14 +940,16 @@
       const canvas = document.getElementById('particle-canvas');
       const ctx = canvas.getContext('2d', { alpha: true });
       const colors = ['#5b7cfa', '#2e9bff', '#28c7b7', '#e6b566'];
+      const saveData = Boolean(navigator.connection?.saveData);
       let particles = [], frame = 0, width = 0, height = 0, dpr = 1, running = !document.hidden;
       const resizeCanvas = () => {
         width = window.innerWidth; height = window.innerHeight;
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        dpr = Math.min(window.devicePixelRatio || 1, finePointer.matches ? 1.5 : 1.25);
         canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
         canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        const count = reducedMotion.matches ? 0 : Math.min(74, Math.max(24, Math.round((width * height) / 23000)));
+        const particleCap = finePointer.matches ? 56 : 32;
+        const count = reducedMotion.matches || saveData ? 0 : Math.min(particleCap, Math.max(18, Math.round((width * height) / 30000)));
         particles = Array.from({ length: count }, (_, index) => particles[index] || ({
           x: Math.random() * width, y: Math.random() * height,
           vx: (Math.random() - .5) * .22, vy: (Math.random() - .5) * .22,
@@ -985,7 +957,7 @@
         }));
       };
       const drawParticles = () => {
-        if (!running || reducedMotion.matches) return;
+        if (!running || reducedMotion.matches || saveData) return;
         ctx.clearRect(0, 0, width, height);
         particles.forEach((particle, i) => {
           particle.x += particle.vx; particle.y += particle.vy;
@@ -1005,16 +977,16 @@
         frame = requestAnimationFrame(drawParticles);
       };
       resizeCanvas();
-      if (!reducedMotion.matches) drawParticles();
+      if (!reducedMotion.matches && !saveData) drawParticles();
       window.addEventListener('resize', resizeCanvas, { passive: true });
       document.addEventListener('visibilitychange', () => {
         running = !document.hidden;
         cancelAnimationFrame(frame);
-        if (running) drawParticles();
+        if (running && !saveData) drawParticles();
       });
       reducedMotion.addEventListener?.('change', event => {
         if (event.matches) { cancelAnimationFrame(frame); ctx.clearRect(0, 0, width, height); }
-        else { resizeCanvas(); running = !document.hidden; drawParticles(); }
+        else if (!saveData) { resizeCanvas(); running = !document.hidden; drawParticles(); }
       });
     })();
   </script>
