@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSZWLDCH74"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZSZWLDCH74');
+  </script>
+
   <!-- Metadata and fonts -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -365,6 +374,7 @@
     .language span { display: inline-flex; margin-top: .65rem; padding: .28rem .58rem; border: 1px solid rgba(40,199,183,.22); border-radius: 999px; color: var(--cyan); font-size: .72rem; font-weight: 700; }
 
     .contact-wrap { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 1rem; }
+    address { font-style: normal; }
     .contact-list, .contact-visual { border-radius: var(--radius-lg); }
     .contact-list { padding: clamp(1.5rem, 4vw, 2.5rem); }
     .contact-item { display: grid; grid-template-columns: 46px 1fr auto; gap: .85rem; align-items: center; padding: 1.1rem 0; border-bottom: 1px solid var(--line); transition: transform .25s ease; }
@@ -375,6 +385,17 @@
     .contact-item small { display: block; color: var(--muted); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
     .contact-item strong { display: block; margin-top: .18rem; overflow-wrap: anywhere; font-size: .92rem; }
     .contact-arrow { color: var(--blue); }
+    .contact-form { margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+    .contact-form h3 { font-size: 1.18rem; }
+    .form-field { display: grid; gap: .38rem; margin-top: .9rem; }
+    .form-field label { color: var(--text-soft); font-size: .76rem; font-weight: 700; }
+    .form-field input, .form-field textarea { width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--soft-fill); color: var(--white); font: inherit; font-size: .86rem; outline: 0; padding: .7rem .78rem; transition: border-color .25s ease, box-shadow .25s ease; }
+    .form-field textarea { min-height: 112px; resize: vertical; }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: var(--muted); }
+    .form-field input:focus, .form-field textarea:focus { border-color: rgba(40,199,183,.55); box-shadow: 0 0 0 3px rgba(40,199,183,.12); }
+    .form-submit { display: inline-flex; margin-top: 1rem; align-items: center; padding: .68rem .95rem; border: 1px solid rgba(91,124,250,.4); border-radius: 10px; background: linear-gradient(120deg, rgba(91,124,250,.28), rgba(46,155,255,.15)); color: var(--white); font-size: .78rem; font-weight: 800; cursor: pointer; transition: transform .25s ease, border-color .25s ease; }
+    .form-submit:hover, .form-submit:focus-visible { transform: translateY(-2px); border-color: rgba(40,199,183,.55); }
+    .form-status { min-height: 1.3rem; margin-top: .65rem; color: var(--muted); font-size: .76rem; }
     .contact-visual { position: relative; display: grid; min-height: 470px; place-items: center; overflow: hidden; background: linear-gradient(145deg, rgba(91,124,250,.14), rgba(46,155,255,.05)), var(--accent-surface-end); }
     .ripple { position: absolute; width: 180px; height: 180px; border: 1px solid var(--line); border-radius: 50%; animation: ripple 4.5s ease-out infinite; }
     .ripple:nth-child(2) { animation-delay: 1.5s; }
@@ -530,7 +551,7 @@
             <a class="hero-link cv-download interactive" href="https://yazan-alzaghloul.github.io/portfolio/Yazan-Alzaghloul-CV.pdf" download="Yazan-Alzaghloul-CV.pdf" aria-label="Download Yazan Alzaghloul's CV as a PDF">
               <span>Download CV</span><span class="hero-link-arrow" aria-hidden="true">↓</span>
             </a>
-            <a class="hero-link hero-contact interactive" href="#contact">
+            <a class="hero-link hero-contact interactive" href="#contact" data-availability-cta="hero">
               <span>Get in touch</span><span class="hero-link-arrow" aria-hidden="true">↓</span>
             </a>
           </div>
@@ -673,7 +694,7 @@
             <a class="contact-item interactive" href="mailto:yazan.alzaghloul@gmail.com"><span class="contact-icon" aria-hidden="true">&#x2709;&#xFE0E;</span><span><small>Email</small><strong>yazan.alzaghloul@gmail.com</strong></span><span class="contact-arrow" aria-hidden="true">↗</span></a>
             <a class="contact-item interactive" href="tel:+971521206549"><span class="contact-icon" aria-hidden="true">&#x260E;&#xFE0E;</span><span><small>Phone</small><strong>+971 52 120 6549</strong></span><span class="contact-arrow" aria-hidden="true">↗</span></a>
             <div class="contact-item"><span class="contact-icon" aria-hidden="true">⌖</span><span><small>Location</small><strong>Abu Dhabi, UAE</strong></span></div>
-            <a class="contact-item interactive" href="https://www.linkedin.com/in/yazan-alzaghloul" target="_blank" rel="noreferrer"><span class="contact-icon" aria-hidden="true">in</span><span><small>LinkedIn</small><strong>yazan-alzaghloul</strong></span><span class="contact-arrow" aria-hidden="true">↗</span></a>
+            <a class="contact-item interactive" href="https://www.linkedin.com/in/yazan-alzaghloul" target="_blank" rel="noreferrer" data-social-profile="linkedin"><span class="contact-icon" aria-hidden="true">in</span><span><small>LinkedIn</small><strong>yazan-alzaghloul</strong></span><span class="contact-arrow" aria-hidden="true">↗</span></a>
           </address>
           <div class="contact-visual glass reveal slide-right" aria-hidden="true"><span class="ripple"></span><span class="ripple"></span><span class="ripple"></span><div class="contact-monogram">YA</div><p class="contact-cta">Build secure, scalable digital experiences.</p></div>
         </div>
@@ -691,6 +712,9 @@
       const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
       const systemTheme = window.matchMedia('(prefers-color-scheme: light)');
       const root = document.documentElement;
+      const trackEvent = (eventName, parameters = {}) => {
+        if (typeof window.gtag === 'function') window.gtag('event', eventName, parameters);
+      };
 
       /* Theme preference */
       const themeButton = document.querySelector('.theme-toggle');
@@ -706,7 +730,11 @@
         }
       };
       applyTheme(root.dataset.theme || 'dark');
-      themeButton.addEventListener('click', () => applyTheme(root.dataset.theme === 'light' ? 'dark' : 'light', true));
+      themeButton.addEventListener('click', () => {
+        const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
+        applyTheme(nextTheme, true);
+        trackEvent('theme_change', { theme: nextTheme });
+      });
       systemTheme.addEventListener?.('change', event => {
         try {
           if (!localStorage.getItem('portfolio-theme')) applyTheme(event.matches ? 'light' : 'dark');
@@ -773,6 +801,146 @@
           if (visible) setActive(visible.target.id);
         }, { rootMargin: '-32% 0px -55% 0px', threshold: [0, .15, .4] });
         sections.forEach(section => sectionObserver.observe(section));
+      }
+
+      /* Privacy-safe Google Analytics events */
+      if ('IntersectionObserver' in window) {
+        const viewedSections = new Set();
+        const analyticsSectionObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            const sectionId = entry.target.id;
+            if (entry.isIntersecting && !viewedSections.has(sectionId)) {
+              viewedSections.add(sectionId);
+              trackEvent('section_view', { section_id: sectionId });
+              analyticsSectionObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .5 });
+        sections.forEach(section => analyticsSectionObserver.observe(section));
+      }
+
+      document.addEventListener('click', event => {
+        const clickedElement = event.target instanceof Element ? event.target : event.target.parentElement;
+        const availabilityCta = clickedElement?.closest('[data-availability-cta]');
+        if (availabilityCta) {
+          trackEvent('availability_cta_click', { placement: availabilityCta.dataset.availabilityCta });
+        }
+
+        const link = clickedElement?.closest('a[href]');
+        if (!link) return;
+
+        const href = link.getAttribute('href') || '';
+        if (link.matches('.nav-cv, .cv-download')) {
+          trackEvent('cv_download', {
+            placement: link.matches('.nav-cv') ? 'navigation' : 'hero'
+          });
+          return;
+        }
+
+        if (href.startsWith('mailto:')) {
+          trackEvent('contact_click', { contact_method: 'email' });
+          return;
+        }
+
+        if (href.startsWith('tel:')) {
+          trackEvent('contact_click', { contact_method: 'phone' });
+          return;
+        }
+
+        if (link.dataset.socialProfile) {
+          trackEvent('social_profile_click', { network: link.dataset.socialProfile });
+          if (link.closest('.contact-list') && href.includes('linkedin.com')) {
+            trackEvent('contact_click', { contact_method: 'linkedin' });
+          }
+          return;
+        }
+
+        const projectCard = link.closest('.project-card');
+        if (projectCard) {
+          trackEvent('project_link_click', {
+            project_name: projectCard.querySelector('h3')?.textContent.trim() || 'unknown',
+            platform: link.textContent.trim().toLowerCase()
+          });
+          return;
+        }
+
+        if (href.startsWith('#')) {
+          const placement = link.matches('.nav-link') ? 'navigation'
+            : link.matches('.hero-contact') ? 'hero'
+              : link.matches('.back-top') ? 'footer'
+                : link.matches('.logo') ? 'logo'
+                  : 'page';
+          trackEvent('navigation_click', {
+            destination: href.slice(1) || 'home',
+            placement
+          });
+        }
+      });
+
+      const contactForm = document.querySelector('#contact-form');
+      const contactFormStatus = document.querySelector('#contact-form-status');
+      if (contactForm && contactFormStatus) {
+        let formStarted = false;
+        contactForm.addEventListener('focusin', () => {
+          if (formStarted) return;
+          formStarted = true;
+          trackEvent('contact_form_start');
+        });
+        contactForm.addEventListener('submit', event => {
+          event.preventDefault();
+          const invalidFields = [...contactForm.querySelectorAll('[required]')].filter(field => !field.checkValidity());
+          if (invalidFields.length) {
+            trackEvent('contact_form_error', { field_count: invalidFields.length });
+            contactFormStatus.textContent = 'Please complete the required fields.';
+            invalidFields[0].focus();
+            return;
+          }
+
+          const formData = new FormData(contactForm);
+          const subject = 'Portfolio inquiry';
+          const body = `Name: ${formData.get('name')}\nEmail: ${formData.get('email')}\n\n${formData.get('message')}`;
+          trackEvent('contact_form_submit', { delivery: 'email' });
+          contactFormStatus.textContent = 'Opening your email app...';
+          window.location.href = `mailto:yazan.alzaghloul@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        });
+      }
+
+      /* Scroll depth via viewport observation, without a per-frame scroll handler */
+      if ('IntersectionObserver' in window) {
+        const scrollMarkers = [25, 50, 75, 100].map(percent => {
+          const marker = document.createElement('span');
+          marker.setAttribute('aria-hidden', 'true');
+          marker.dataset.scrollDepth = String(percent);
+          marker.style.position = 'absolute';
+          marker.style.width = '1px';
+          marker.style.height = '1px';
+          marker.style.pointerEvents = 'none';
+          marker.style.opacity = '0';
+          document.body.appendChild(marker);
+          return marker;
+        });
+        const positionScrollMarkers = () => {
+          const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+          scrollMarkers.forEach(marker => {
+            const percent = Number(marker.dataset.scrollDepth);
+            marker.style.top = `${(maxScroll * percent / 100) + (window.innerHeight / 2)}px`;
+          });
+        };
+        const observedDepths = new Set();
+        const scrollDepthObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const percent = Number(entry.target.dataset.scrollDepth);
+            if (observedDepths.has(percent)) return;
+            observedDepths.add(percent);
+            trackEvent('scroll_depth', { percent_scrolled: percent });
+            scrollDepthObserver.unobserve(entry.target);
+          });
+        }, { threshold: 0 });
+        scrollMarkers.forEach(marker => scrollDepthObserver.observe(marker));
+        positionScrollMarkers();
+        if ('ResizeObserver' in window) new ResizeObserver(positionScrollMarkers).observe(document.body);
+        window.addEventListener('resize', positionScrollMarkers, { passive: true });
       }
 
       /* Cursor behavior */
