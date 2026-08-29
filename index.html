@@ -288,7 +288,7 @@
 
     main { overflow: hidden; }
     .container { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
-    .section { padding: clamp(5rem, 9vw, 8rem) 0; content-visibility: auto; contain-intrinsic-size: auto 900px; }
+    .section { padding: clamp(5rem, 9vw, 8rem) 0; }
     .section-head { display: grid; grid-template-columns: minmax(0, .7fr) minmax(280px, 1fr); gap: 2rem; align-items: end; margin-bottom: 3rem; }
     .eyebrow { display: inline-flex; align-items: center; gap: .65rem; margin-bottom: .85rem; color: var(--cyan); font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
@@ -421,6 +421,11 @@
     .award p { margin-top: .25rem; color: var(--muted); font-size: .78rem; }
     .certificates { margin-top: 1rem; padding: clamp(1.5rem, 3vw, 2rem); border-radius: var(--radius-md); }
     .certificates h3 { margin-top: .55rem; font-size: clamp(1.45rem, 3vw, 2rem); }
+    .certificates-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; }
+    .certificates-intro { max-width: 58ch; margin-top: .65rem; color: var(--muted); font-size: .88rem; line-height: 1.65; }
+    .certificates-all { display: inline-flex; flex: 0 0 auto; align-items: center; gap: .5rem; padding: .72rem .9rem; border: 1px solid var(--line); border-radius: 12px; color: var(--text-strong); font-size: .76rem; font-weight: 800; white-space: nowrap; transition: transform .25s var(--ease-out), border-color .25s ease, background .25s ease; }
+    .certificates-all:hover, .certificates-all:focus-visible { transform: translateY(-2px); border-color: rgba(40,199,183,.36); background: var(--soft-fill-hover); }
+    .certificates-all span { color: var(--cyan); }
     .certificate-link { display: grid; grid-template-columns: minmax(150px, .34fr) 1fr auto; margin-top: 1.35rem; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--soft-fill); transition: transform .3s var(--ease-out), border-color .3s ease, background .3s ease, box-shadow .3s ease; }
     .certificate-link:hover, .certificate-link:focus-visible { transform: translateY(-4px); border-color: rgba(40,199,183,.36); background: var(--soft-fill-hover); box-shadow: 0 18px 42px rgba(0,0,0,.16); }
     .certificate-mark { position: relative; display: grid; min-height: 180px; place-items: center; overflow: hidden; border-right: 1px solid var(--line); background: linear-gradient(145deg, rgba(91,124,250,.2), rgba(40,199,183,.08)); }
@@ -520,6 +525,7 @@
       .education-card { min-height: 330px; }
       .education-year strong { font-size: 3rem; }
       .education-school { margin: 3rem 0 2rem; }
+      .certificates-heading { align-items: flex-start; flex-direction: column; gap: 1rem; }
       .certificate-link { grid-template-columns: 92px 1fr; }
       .certificate-mark { min-height: 100%; }
       .certificate-copy { padding: 1.2rem; }
@@ -738,8 +744,10 @@
           <article class="credential-card glass reveal slide-right"><span class="credential-label">Awards</span><ul class="award-list"><li class="award"><span class="award-year">2025</span><div><h3>Certificate of Appreciation</h3><p>Finance House · Development of the new investnation Credit Card</p></div></li><li class="award"><span class="award-year">2024</span><div><h3>Certificate of Appreciation</h3><p>Finance House · Contribution to Oracle Cloud Infrastructure migration</p></div></li><li class="award"><span class="award-year">2023</span><div><h3>Certificate of Appreciation</h3><p>Finance House · Outstanding performance in digital delivery</p></div></li><li class="award"><span class="award-year">2023</span><div><h3>NPSS Project Completion Award</h3><p>Finance House</p></div></li></ul></article>
         </div>
         <section class="certificates glass reveal" aria-labelledby="certificates-title">
-          <span class="credential-label">Professional learning</span>
-          <h3 id="certificates-title">Certificates</h3>
+          <div class="certificates-heading">
+            <div><span class="credential-label">Professional learning</span><h3 id="certificates-title">Selected certificates</h3><p class="certificates-intro">This selection highlights my most important professional certificates. View the complete collection on LinkedIn.</p></div>
+            <a class="certificates-all interactive" href="https://www.linkedin.com/in/yazan-alzaghloul/details/certifications/" target="_blank" rel="me noreferrer" data-social-profile="linkedin">View all on LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
           <a class="certificate-link interactive" href="https://www.linkedin.com/learning/certificates/6bc81bd73f29fee19c9df495cdd3cd81b585681410dd6b0318bf75e38366972f?u=86013394" target="_blank" rel="noreferrer" data-certificate-name="Claude 101 by Anthropic" data-certificate-issuer="Anthropic">
             <span class="certificate-mark" aria-hidden="true"><strong>AI</strong></span>
             <div class="certificate-copy"><span class="certificate-provider">Anthropic</span><h4>Claude 101 by Anthropic</h4><p class="certificate-skills"><strong>Skills covered:</strong> Artificial Intelligence (AI), Anthropic Claude, and AI literacy.</p></div>
