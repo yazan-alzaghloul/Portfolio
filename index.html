@@ -371,6 +371,10 @@
     .role-meta span { display: block; }
     .role ul { display: grid; gap: .62rem; padding-left: 1.2rem; color: var(--text-soft); }
     .role li::marker { color: var(--role-accent, var(--blue)); }
+    .role-position + .role-position { margin-top: 1.7rem; padding-top: 1.7rem; border-top: 1px solid var(--line); }
+    .role-position-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+    .role-position-head h4 { margin: 0; color: var(--white); font: 700 1rem/1.3 "Syne", sans-serif; }
+    .role-position-head time { flex: 0 0 auto; color: var(--muted); font-size: .8rem; }
     .role-tags { display: flex; flex-wrap: wrap; gap: .48rem; margin-top: 1.25rem; }
 
     .projects-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
@@ -536,6 +540,7 @@
       .role::before { left: -34px; }
       .role-head { grid-template-columns: 1fr; }
       .role-meta { text-align: left; }
+      .role-position-head { align-items: flex-start; flex-direction: column; gap: .25rem; }
       .contact-item { grid-template-columns: 42px 1fr; }
       .contact-arrow { display: none; }
       .contact-visual { min-height: 410px; }
@@ -676,9 +681,16 @@
         </header>
         <div class="timeline">
           <article class="role glass reveal slide-left" style="--role-accent:var(--blue)">
-            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://www.financehouse.ae/en/home/" target="_blank" rel="noreferrer">Finance House <span aria-hidden="true">↗</span></a></p><h3>Engineering Manager</h3></div><p class="role-meta"><span>Dec 2024 - Present</span><span>Mobile Team Leader · Sep 2022 - Dec 2024</span><span>Abu Dhabi, UAE</span></p></header>
-            <ul><li>Lead a cross-functional team of 11 mobile and backend developers, providing technical direction, mentorship, architecture guidance, and delivery standards.</li><li>Lead architecture and engineering delivery for five retail and corporate digital banking applications.</li><li>Architect and implement a multi-agent AI-Assisted Development Lifecycle (ADLC) framework across requirements, development, testing, documentation, and release.</li><li>Implement Apple Wallet, Google Wallet, and Samsung Wallet provisioning, plus Aani instant payments and regulated banking integrations.</li><li>Collaborate with product, security, compliance, business, and technology stakeholders on secure financial solutions.</li></ul>
-            <div class="role-tags"><span class="chip">Digital Banking</span><span class="chip">Mobile Architecture</span><span class="chip">AI Agents</span><span class="chip">Digital Wallets</span><span class="chip">Aani</span></div>
+            <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://www.financehouse.ae/en/home/" target="_blank" rel="noreferrer">Finance House <span aria-hidden="true">↗</span></a></p><h3>Engineering Leadership</h3></div><p class="role-meta"><span>Sep 2022 - Present</span><span>Abu Dhabi, UAE</span></p></header>
+            <section class="role-position" aria-labelledby="finance-manager-title">
+              <div class="role-position-head"><h4 id="finance-manager-title">Engineering Manager</h4><time datetime="2024-12">Dec 2024 - Present</time></div>
+              <ul><li>Lead a cross-functional engineering team, owning technical direction, architecture guidance, engineering standards, team development, and delivery across multiple digital banking products.</li><li>Lead architecture and delivery for five retail and corporate digital banking applications, ensuring scalability, security, performance, maintainability, and high-quality customer experiences.</li><li>Provide technical leadership, mentorship, and engineering governance across mobile and backend teams while establishing consistent architecture and delivery standards.</li><li>Architect and implement a multi-agent AI-Assisted Development Lifecycle (ADLC) framework spanning requirements, development, testing, documentation, and release.</li><li>Drive engineering productivity through AI-assisted development, automation, modern development practices, and continuous improvement.</li><li>Align engineering execution with business objectives and regulatory requirements across product, security, compliance, business, and technology teams.</li><li>Support technical planning, solution architecture, delivery prioritization, risk management, and cross-team coordination for strategic digital banking initiatives.</li></ul>
+            </section>
+            <section class="role-position" aria-labelledby="finance-mobile-lead-title">
+              <div class="role-position-head"><h4 id="finance-mobile-lead-title">Mobile Team Leader</h4><time datetime="2022-09">Sep 2022 - Dec 2024</time></div>
+              <ul><li>Led mobile engineering delivery across retail and corporate digital banking applications, providing technical direction, architecture guidance, code quality standards, and mentorship.</li><li>Led the design, development, and delivery of secure, scalable mobile banking applications using Flutter.</li><li>Defined mobile architecture standards and engineering practices to improve maintainability, performance, scalability, and code quality.</li><li>Implemented Apple Wallet, Google Wallet, and Samsung Wallet provisioning for secure tokenized payment experiences.</li><li>Contributed to Aani instant payments and other regulated banking integrations across Finance House digital channels.</li><li>Mentored mobile engineers, supported technical decisions, reviewed implementation approaches, and promoted consistent engineering practices.</li></ul>
+            </section>
+            <div class="role-tags"><span class="chip">Engineering Management</span><span class="chip">Digital Banking</span><span class="chip">Mobile Architecture</span><span class="chip">AI Agents</span><span class="chip">Digital Wallets</span><span class="chip">Aani</span></div>
           </article>
           <article class="role glass reveal slide-right" style="--role-accent:var(--cyan)">
             <header class="role-head"><div><p class="role-company"><a class="company-link interactive" href="https://dubaiappstudio.ae/" target="_blank" rel="noreferrer">DA Studio <span aria-hidden="true">↗</span></a></p><h3>Software Engineer</h3></div><p class="role-meta"><span>Dec 2021 - Sep 2022</span><span>Dubai, UAE</span></p></header>
